@@ -1,6 +1,6 @@
 Sure, here's a simple reinforcement learning script using Q-learning to predict the price of a financial instrument in trading. In this example, we'll create an environment where the agent (trader) decides whether to buy, sell, or hold a position based on the current state of the market.
 
-'''py
+```ruby
 import numpy as np
 
 class TradingEnvironment:
@@ -53,14 +53,12 @@ class QLearningTrader:
         max_next_action = np.max(self.q_table)
         self.q_table[action] += self.learning_rate * (reward + self.discount_factor * max_next_action - self.q_table[action])
 
-# Generate some random price data for demonstration
 price_data = np.random.randint(50, 150, size=100)
 
-# Initialize the environment and the Q-learning trader
+
 env = TradingEnvironment(data=price_data)
 trader = QLearningTrader(num_actions=3)
 
-# Training loop
 num_episodes = 100
 for episode in range(num_episodes):
     state = env.reset()
@@ -80,7 +78,7 @@ for episode in range(num_episodes):
             done = True
             
     print(f"Episode: {episode + 1}, Total Reward: {total_reward}, Final Balance: {balance}")
-'''
+```
 In this script:
 
 
